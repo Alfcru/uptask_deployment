@@ -1,0 +1,29 @@
+doctype html
+html(lang="en")
+    head
+        include parcials/header
+    body.login
+        .contenedor-formulario 
+            h1 Iniciar Sesion en UpTask 
+
+            if locals.mensajes
+                .alertas 
+                    each categoria in Object.keys(locals.mensajes)
+                        each error in mensajes[categoria]
+                            .alerta(class=`${categoria}`)  
+                                p= error
+
+            form#formulario.caja.caja-login(method='POST' action='/iniciar-sesion')
+                .campo 
+                    label(for='email') E-mail: 
+                    input(type='email' name='email' placeholder='Tu email' value= email)
+                .campo
+                    label(for='password') E-mail: 
+                    input(type='password' name='password' placeholder='Tu Password' value= password)
+                .campo.enviar
+                    input.bot(type='submit' value='Iniciar Sesion')
+                .campo.acciones
+                    a(href='/crear-cuenta') ¿Crear una Cuenta? es Gratis
+
+                    a(href='reestablecer') ¿Olvidaste tu Contraseña?
+        script(src='/dist/bundle.js')
