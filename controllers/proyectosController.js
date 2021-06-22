@@ -101,10 +101,16 @@ exports.proyectoEditar = async (req, res) => {
     const usuarioId = res.locals.usuario.id;
     const proyectosPromise = Proyectos.findAll({
         where: {
-            id:req.params.id,
             usuarioId
         }
     });
+
+    const proyectoPromise = Proyectos.findOne({
+        where: {
+            id: req.params.id,
+            usuarioId
+        }
+    })
 
     // Eliminamos la await para cada consulta y creamso un promisAll 
     const [proyectos, proyecto] = await Promise.all([proyectosPromise, proyectoPromise])

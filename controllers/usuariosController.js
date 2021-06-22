@@ -3,14 +3,14 @@ const enviarEmail = require('../handlers/email')
 
 exports.formCrearCuenta = (req, res)=>{
     res.render('crearCuenta', {
-        nombrePagina: 'Crear Cuenta en Upstask'
+        nombrePagina: 'Crear Cuenta en UpTask'
     })    
 }
 
 exports.formIniciarSesion = (req, res)=>{
     const { error } = res.locals.mensajes;
     res.render('iniciarSesion', {
-        nombrePagina: 'Iniciar Sesion en Upstask',
+        nombrePagina: 'Iniciar Sesion en UpTask',
         error
     })    
 }

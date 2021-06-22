@@ -49,7 +49,7 @@ exports.cambiarEstadoTarea = async(req, res)=>{
     const resultado = await tarea.save();
 
     if(!resultado) return next();
-    res.status(200).send('Actaulizado')
+    res.status(200).send('Actualizado')
 }
 
 exports.eliminarTarea = async(req, res, next) =>{
